@@ -11,11 +11,16 @@ const App = () => {
     country: 'VN'
   }
 
+  const addNewTodo = (name) => {
+    alert(`Call me ${name}`)
+  }
+
   return (
     <div className="todo-container">
       <div className="todo-title">Todo List</div>
 
-      <TodoNew />
+      <TodoNew addNewTodo={addNewTodo} />
+      {/* không thêm dấu () vì nếu có () sẽ là gọi hàm chứ kh phải truyền tham chiếu */}
       <TodoData name={name} age={age} data={data}/>
 
       <div className='todo-img'>
