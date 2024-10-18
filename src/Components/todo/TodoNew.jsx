@@ -2,7 +2,7 @@ import { useState } from "react"
 
 const TodoNew = (props) => {
     // console.log(props);
-    const { addNewTodo,incrementCount, count } = props
+    const { addNewTodo, incrementCount, count } = props
     // addNewTodo()
     // gọi hàm từ hàm con kp hàm cha
     // props.addNewTodo()
@@ -14,6 +14,7 @@ const TodoNew = (props) => {
 
     const handleClick = () => {
         addNewTodo(text)
+        setText("")
     }
 
     const work = () => {
@@ -23,11 +24,13 @@ const TodoNew = (props) => {
 
     return (
         <div className='todo-new'>
-            <input type="text" 
+            <input
+                type="text"
+                value={text}
                 onChange={(e) => handleTextChange(e)}
             />
-            <button 
-                style={{cursor: "pointer"}}
+            <button
+                style={{ cursor: "pointer" }}
                 onClick={work}
             >Add</button>
 
