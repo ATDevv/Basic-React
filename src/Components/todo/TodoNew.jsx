@@ -1,4 +1,4 @@
-
+import { useState } from "react"
 
 const TodoNew = (props) => {
     // console.log(props);
@@ -6,9 +6,14 @@ const TodoNew = (props) => {
     // addNewTodo()
     // gọi hàm từ hàm con kp hàm cha
     // props.addNewTodo()
+    const [text, setText] = useState("atd");
 
     const handleClick = () => {
-        alert('Click me!')
+        console.log(text);
+    }
+
+    const handleTextChange = (e) => {
+        setText(e.target.value)
     }
 
     const handleOnchange = (e) => {
@@ -18,12 +23,16 @@ const TodoNew = (props) => {
     return (
         <div className='todo-new'>
             <input type="text" 
-                onChange={handleOnchange}
+                onChange={(e) => handleTextChange(e)}
             />
             <button 
                 style={{cursor: "pointer"}}
                 onClick={handleClick}
             >Add</button>
+
+            <div>
+                My text input is: {text}
+            </div>
         </div>
     )
 }
