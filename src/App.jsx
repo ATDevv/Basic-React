@@ -6,21 +6,11 @@ import { useState } from 'react'
 
 const App = () => {
 
-  const [todoList, setTodoList] = useState([
-    {id: 1, name: 'Learning React'},
-    {id: 2, name: 'Watching Youtube'}
-  ]);
-  const [count, setCount] = useState(3);
+  const [todoList, setTodoList] = useState([]);
+  const [count, setCount] = useState(0);
 
   const incrementCount = () => {
     setCount(count => count + 1)
-  }
-
-  const name = 'ATDev'
-  const age = 18
-  const data = {
-    addRess: "HN",
-    country: 'VN'
   }
 
   const addNewTodo = (name) => {
@@ -39,7 +29,7 @@ const App = () => {
       <TodoNew addNewTodo={addNewTodo} incrementCount={incrementCount} count={count}/>
       {/* không thêm dấu () vì nếu có () sẽ là gọi hàm chứ kh phải truyền tham chiếu */}
 
-      <TodoData name={name} age={age} data={data} todoList={todoList}/>
+      <TodoData todoList={todoList}/>
 
       <div className='todo-img'>
         <img src={reactLogo} className='logo' />

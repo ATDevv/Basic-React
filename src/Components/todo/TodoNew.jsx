@@ -6,7 +6,7 @@ const TodoNew = (props) => {
     // addNewTodo()
     // gọi hàm từ hàm con kp hàm cha
     // props.addNewTodo()
-    const [text, setText] = useState("atd");
+    const [text, setText] = useState("");
 
     const handleTextChange = (e) => {
         setText(e.target.value)
@@ -35,9 +35,9 @@ const TodoNew = (props) => {
             >Add</button>
 
             <div>
-                My text input is: {text}
+                My text input is = {text}
             </div>
-            <div>{count}</div>
+            <div>; Index = {count}</div>
             {/* <button onClick={incrementCount}></button> */}
         </div>
     )
