@@ -26,14 +26,19 @@ const App = () => {
     <div className="todo-container">
       <div className="todo-title">Todo List</div>
 
-      <TodoNew addNewTodo={addNewTodo} incrementCount={incrementCount} count={count}/>
+      <TodoNew addNewTodo={addNewTodo} incrementCount={incrementCount} count={count} />
       {/* không thêm dấu () vì nếu có () sẽ là gọi hàm chứ kh phải truyền tham chiếu */}
 
-      <TodoData todoList={todoList}/>
+      {/* Add toán tử điều kiện */}
+      {todoList.length > 0 ?
+        <TodoData todoList={todoList} />
 
-      <div className='todo-img'>
-        <img src={reactLogo} className='logo' />
-      </div>
+        :
+
+        <div className='todo-img'>
+          <img src={reactLogo} className='logo' />
+        </div>
+      }
     </div>
   )
 }
