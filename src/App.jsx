@@ -22,6 +22,12 @@ const App = () => {
     setTodoList([...todoList, newTodo])
   }
 
+  const deleteTodo = (id) => {
+    // setTodoList(todoList => todoList.filter((_, i) => i !== id))
+    const newTodo = todoList.filter(item => item.id !== id)
+    setTodoList(newTodo)
+  }
+
   return (
     <div className="todo-container">
       <div className="todo-title">Todo List</div>
@@ -30,8 +36,9 @@ const App = () => {
       {/* không thêm dấu () vì nếu có () sẽ là gọi hàm chứ kh phải truyền tham chiếu */}
 
       {/* Add toán tử điều kiện */}
-      {todoList.length > 0 ?
-        <TodoData todoList={todoList} />
+      {
+        todoList.length > 0 ?
+        <TodoData todoList={todoList} deleteTodo={deleteTodo}/>
 
         :
 

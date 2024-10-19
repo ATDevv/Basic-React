@@ -3,7 +3,7 @@
 const TodoData = (props) => {
     // props là 1 obj
 
-    const { todoList } = props;
+    const { todoList, deleteTodo } = props;
 
     // console.log(todoList);
     return (
@@ -12,7 +12,7 @@ const TodoData = (props) => {
                 return (
                     <div className="todo-item">
                         <div key={item.id}>{item.name}</div>
-                        <button style={{cursor: "pointer"}}>Delete</button>
+                        <button style={{cursor: "pointer"}} onClick={() => deleteTodo(item.id)}>Delete</button>
                     </div>
                 )
                 // vì item là 1 obj
