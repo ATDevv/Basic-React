@@ -23,7 +23,7 @@ const App = () => {
   }
 
   const deleteTodo = (id) => {
-    // setTodoList(todoList => todoList.filter((_, i) => i !== id))
+    // setTodoList(todoList => todoList.filter((ele, i) => ele.id !== id))
     const newTodo = todoList.filter(item => item.id !== id)
     setTodoList(newTodo)
   }
