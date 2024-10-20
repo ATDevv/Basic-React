@@ -3,6 +3,8 @@ import TodoNew from './Components/todo/TodoNew'
 import TodoData from './Components/todo/TodoData'
 import reactLogo from './assets/react.svg'
 import { useState } from 'react'
+import Header from './Components/Layout/Header'
+import Footer from './Components/Layout/Footer'
 
 const App = () => {
 
@@ -29,24 +31,28 @@ const App = () => {
   }
 
   return (
-    <div className="todo-container">
-      <div className="todo-title">Todo List</div>
+    <>
+      <Header/>
+      <div className="todo-container">
+        <div className="todo-title">Todo List</div>
 
-      <TodoNew addNewTodo={addNewTodo} incrementCount={incrementCount} count={count} />
-      {/* không thêm dấu () vì nếu có () sẽ là gọi hàm chứ kh phải truyền tham chiếu */}
+        <TodoNew addNewTodo={addNewTodo} incrementCount={incrementCount} count={count} />
+        {/* không thêm dấu () vì nếu có () sẽ là gọi hàm chứ kh phải truyền tham chiếu */}
 
-      {/* Add toán tử điều kiện */}
-      {
-        todoList.length > 0 ?
-        <TodoData todoList={todoList} deleteTodo={deleteTodo}/>
+        {/* Add toán tử điều kiện */}
+        {
+          todoList.length > 0 ?
+            <TodoData todoList={todoList} deleteTodo={deleteTodo} />
 
-        :
+            :
 
-        <div className='todo-img'>
-          <img src={reactLogo} className='logo' />
-        </div>
-      }
-    </div>
+            <div className='todo-img'>
+              <img src={reactLogo} className='logo' />
+            </div>
+        }
+      </div>
+      <Footer/>
+    </>
   )
 }
 
