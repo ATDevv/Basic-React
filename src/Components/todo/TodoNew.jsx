@@ -29,10 +29,19 @@ const TodoNew = (props) => {
                 value={text}
                 onChange={(e) => handleTextChange(e)}
             />
-            <button
-                style={{ cursor: "pointer" }}
-                onClick={work}
-            >Add</button>
+            {
+                text.trim() ?
+                    <button
+                        style={{ cursor: "pointer" }}
+                        onClick={work}
+                    >Add</button>
+
+                    :
+
+                    <button
+                        style={{ cursor: "pointer" }}
+                    >Add</button>
+            }
 
             <div>
                 My text input is = {text}
