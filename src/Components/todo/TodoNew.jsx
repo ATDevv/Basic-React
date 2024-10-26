@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 
 const TodoNew = (props) => {
     // console.log(props);
@@ -22,6 +23,10 @@ const TodoNew = (props) => {
         incrementCount()
     }
 
+    const notifiError = () => {
+        alert('Empty Input')
+    }
+
     return (
         <div className='todo-new'>
             <input
@@ -40,11 +45,12 @@ const TodoNew = (props) => {
 
                     <button
                         style={{ cursor: "pointer" }}
+                        onClick={notifiError}
                     >Add</button>
             }
 
             <div>
-                My text input is = {text}
+                My text input is = {text} <StarOutlined/>
             </div>
             <div>; Index = {count}</div>
             {/* <button onClick={incrementCount}></button> */}
