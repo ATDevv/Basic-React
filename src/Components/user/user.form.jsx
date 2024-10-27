@@ -22,6 +22,12 @@ const UserForm = () => {
                 description: "Tạo User thành công"
             })
         }
+        else {
+            notification.error({
+                message: "Error Create User",
+                description: JSON.stringify(res.message) //format string type
+            })
+        }
         // console.log(res.data.data);
 
         setFullName("")
