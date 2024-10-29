@@ -12,6 +12,11 @@ const CreateUserApi = (fullName, email, password, phone) => {
     return (axios.post(url_be, data))
 }
 
+const fetchAllUserAPI = () => {
+    const url_be = "/api/v1/user"
+    return (axios.get(url_be))
+}
+
 export {
-    CreateUserApi
+    CreateUserApi, fetchAllUserAPI
 }
