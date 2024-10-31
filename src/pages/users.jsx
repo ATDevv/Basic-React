@@ -5,7 +5,6 @@ import UserTable from "../Components/user/user.table"
 const UsersPage = () => {
     return (
         <>
-            <div>Users Page</div>
             <UserForm />
             <UserTable />
         </>

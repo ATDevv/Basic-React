@@ -4,10 +4,7 @@ import { fetchAllUserAPI } from '../../services/api.services';
 
 const UserTable = () => {
 
-    const [dataUser, setDataUser] = useState([
-        { _id: 'ATD', fullName: 'Dinh Tuan Anh', email: 'abc@gmail.com' },
-        { _id: 'ATD2', fullName: 'Dinh Tuan Anh 2', email: 'abc2@gmail.com' }
-    ]);
+    const [dataUser, setDataUser] = useState([]);
 
 
 
