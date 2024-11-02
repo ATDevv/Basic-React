@@ -1,10 +1,10 @@
 import { Input, Button, notification, Modal } from 'antd'
 import { useState } from 'react'
-import axios from 'axios'
 import { CreateUserApi } from '../../services/api.services'
 
 
-const UserForm = () => {
+const UserForm = (props) => {
+    const {loadUser} = props
 
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
@@ -17,13 +17,14 @@ const UserForm = () => {
 
         const res = await CreateUserApi(fullName, email, password, phone)
         //truyền tham số như thế này được vig CreateUserApi là 1 hàm js bth không phải ReactComponents
-
         if (res.data) {
             notification.success({
                 message: "Create User",
                 description: "Tạo User thành công"
             })
-            setIsModalOpen(false)
+            reset()
+            await loadUser()
+            //=> loadUser() là HÀM, là HÀM,....
         }
         else {
             notification.error({
@@ -31,12 +32,14 @@ const UserForm = () => {
                 description: JSON.stringify(res.message) //format string type
             })
         }
-        // console.log(res.data.data);
+    }
 
+    const reset = () => {
         setFullName("")
         setEmail("")
         setPassword("")
         setPhone("")
+        setIsModalOpen(false)
     }
 
     return (
