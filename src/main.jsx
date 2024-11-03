@@ -24,11 +24,11 @@ const router = createBrowserRouter([
         element: <TodoApp/>
       },
       {
-        path: 'users',
+        path: '/users',
         element: <UsersPage />
       },
       {
-        path: 'products',
+        path: '/products',
         element: <ProductPage />
       }
     ]
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
     element: <LoginPage />
   },
   {
-    path: 'register',
+    path: '/register',
     element: <RegisterPage />
   },
 ]);
