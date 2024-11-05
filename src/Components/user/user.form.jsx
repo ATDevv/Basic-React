@@ -16,7 +16,7 @@ const UserForm = (props) => {
     const handleSubmitButton = async () => {
 
         const res = await CreateUserApi(fullName, email, password, phone)
-        //truyền tham số như thế này được vig CreateUserApi là 1 hàm js bth không phải ReactComponents
+        //truyền tham số như thế này được vì CreateUserApi là 1 hàm js bth không phải ReactComponents
         if (res.data) {
             notification.success({
                 message: "Create User",

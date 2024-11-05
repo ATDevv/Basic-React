@@ -1,18 +1,25 @@
 import { Input, notification, Modal } from 'antd'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { CreateUserApi } from '../../services/api.services'
 
 const UpdateUserModal = (props) => {
     const [fullName, setFullName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
+    const [id, setID] = useState("");
 
     // const [isModelUpdateOpen, setIsModelUpdateOpen] = useState(true)
-    const { isModelUpdateOpen, setIsModelUpdateOpen } = props
+    const { isModelUpdateOpen, setIsModelUpdateOpen, dataUpdate, setDataUpdate } = props
+
+    useEffect(() => {
+            if(dataUpdate){
+                setID(dataUpdate._id)
+                setFullName(dataUpdate.fullName)
+                setPhone(dataUpdate.phone)
+            }
+        }, [dataUpdate])
 
     const handleSubmitButton = async () => {
-        const res = await CreateUserApi(fullName, email, password, phone)
+        const res = await CreateUserApi(fullName, phone)
         if (res.data) {
             notification.success({
                 message: "Create User",
@@ -31,10 +38,10 @@ const UpdateUserModal = (props) => {
 
     const reset = () => {
         setFullName("")
-        setEmail("")
-        setPassword("")
+        setID("")
         setPhone("")
         setIsModelUpdateOpen(false)
+        setDataUpdate(null)
     }
 
     return (
@@ -48,26 +55,18 @@ const UpdateUserModal = (props) => {
         >
             <div style={{ display: 'flex', gap: '15px', flexDirection: 'column' }}>
                 <div>
+                    <span>Id</span>
+                    <Input
+                        value={id}
+                        disabled
+                    />
+                </div>
+
+                <div>
                     <span>Full Name</span>
                     <Input
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
-                    />
-                </div>
-
-                <div>
-                    <span>Email</span>
-                    <Input
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-
-                <div>
-                    <span>Password</span>
-                    <Input.Password
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
 

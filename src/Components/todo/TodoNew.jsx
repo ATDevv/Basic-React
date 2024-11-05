@@ -49,10 +49,10 @@ const TodoNew = (props) => {
                     >Add</button>
             }
 
-            <div>
+            {/* <div>
                 My text input is = {text} <StarOutlined/>
             </div>
-            <div>; Index = {count}</div>
+            <div>; Index = {count}</div> */}
             {/* <button onClick={incrementCount}></button> */}
         </div>
     )

@@ -38,7 +38,7 @@ const TodoApp = () => {
                 {/* Add toán tử điều kiện */}
                 {
                     todoList.length > 0 ?
-                        <TodoData todoList={todoList} deleteTodo={deleteTodo} />
+                        <TodoData todoList={todoList} deleteTodo={deleteTodo} setTodoList={setTodoList}/>
 
                         :
 

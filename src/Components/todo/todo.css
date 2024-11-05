@@ -5,7 +5,7 @@
 
 .todo-title {
     font-size: 40px;
-    color: rgb(242, 88, 37);
+    color: rgb(37, 198, 242);
     font-weight: bold;
     margin: 15px 0;
     text-align: center;
@@ -38,6 +38,7 @@
     padding: 1.5em;
     will-change: filter;
     transition: filter 300ms;
+    cursor: pointer;
 }
 
 .logo:hover {
