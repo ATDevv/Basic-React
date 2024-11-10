@@ -19,7 +19,7 @@ const UsersPage = () => {
     return (
         <>
             <UserForm loadUser={loadUser}/>
-            <UserTable dataUser={dataUser}/>
+            <UserTable dataUser={dataUser} loadUser={loadUser}/>
         </>
     )
 }

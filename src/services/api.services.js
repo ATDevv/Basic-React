@@ -12,11 +12,22 @@ const CreateUserApi = (fullName, email, password, phone) => {
     return (axios.post(url_be, data))
 }
 
+const updateUserAPI = (_id, fullName, phone) => {
+    const url_be = "/api/v1/user"
+    const data = {
+        _id: _id,
+        fullName: fullName,
+        phone: phone
+    }
+    return (axios.put(url_be, data))
+}
+
+
 const fetchAllUserAPI = () => {
     const url_be = "/api/v1/user"
     return (axios.get(url_be))
 }
 
 export {
-    CreateUserApi, fetchAllUserAPI
+    CreateUserApi, fetchAllUserAPI, updateUserAPI
 }
