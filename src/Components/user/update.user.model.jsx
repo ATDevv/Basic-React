@@ -23,7 +23,7 @@ const UpdateUserModal = (props) => {
         if (res.data) {
             notification.success({
                 message: "Create User",
-                description: "Sửa User thành công"
+                description: "Success Create User"
             })
             reset()
             await loadUser()

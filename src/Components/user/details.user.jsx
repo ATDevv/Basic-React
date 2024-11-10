@@ -11,7 +11,7 @@ const ViewDetailUer = (props) => {
     }
 
     return (
-        <Drawer onClose={closeDetails} open={openDetail} title="Chi tiết Users">
+        <Drawer onClose={closeDetails} open={openDetail} title="Details User">
             {
                 detailData ? 
                 <>
@@ -24,7 +24,7 @@ const ViewDetailUer = (props) => {
                     <p>Phone: {detailData.phone}</p>
                 </>
                 :
-                <p>Kh có dữ liệu</p>
+                <p>Empty Data</p>
             }
         </Drawer>
     )
