@@ -1,4 +1,4 @@
-import { CheckOutlined, DeleteOutlined, EditOutlined} from '@ant-design/icons';
+import { CheckOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 
 const TodoData = (props) => {
@@ -14,13 +14,13 @@ const TodoData = (props) => {
     }
 
     const handleSave = (id) => {
-        const updatedList = todoList.map(item =>
-            item.id === id ? { ...item, name: newValue } : item
-        );
-        setTodoList(updatedList);
+        const updateValueEdit = todoList.map(item => 
+            item.id === id ? { ...item, name: newValue }: item
+        )
+        setTodoList(updateValueEdit)
         setEditing(null)
         setNewValue('')
-    };
+    }
 
     const handleChange = (e) => {
         setNewValue(e.target.value) //Update value in input
@@ -34,10 +34,11 @@ const TodoData = (props) => {
                         {
                             editing === item.id ?
                                 <>
-                                    <input 
-                                        type="text" 
-                                        value={newValue} 
+                                    <input
+                                        type="text"
+                                        value={newValue}
                                         onChange={handleChange}
+                                        style={{ borderColor: '#2ed4ff', borderStyle: 'solid', outline: 'none', borderRadius: 3, padding: 3 }}
                                     />
                                     <div>
                                         <CheckOutlined onClick={() => handleSave(item.id)} />
