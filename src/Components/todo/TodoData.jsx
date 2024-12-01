@@ -1,16 +1,29 @@
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { CheckOutlined, DeleteOutlined, EditOutlined} from '@ant-design/icons';
 import { useState } from 'react';
 
 const TodoData = (props) => {
     // props là 1 obj
 
     const { todoList, deleteTodo, setTodoList } = props;
-    const [editing, setEditing] = useState(false);
+    const [editing, setEditing] = useState(null)
+    const [newValue, setNewValue] = useState('')
 
-    // console.log(todoList);
-    const handleEditing = (a) => {
-        setEditing(true);
-        console.log(todoList[a].name);
+    const handleEditing = (id, currentName) => {
+        setEditing(id);
+        setNewValue(currentName)
+    }
+
+    const handleSave = (id) => {
+        const updatedList = todoList.map(item =>
+            item.id === id ? { ...item, name: newValue } : item
+        );
+        setTodoList(updatedList);
+        setEditing(null)
+        setNewValue('')
+    };
+
+    const handleChange = (e) => {
+        setNewValue(e.target.value) //Update value in input
     };
 
     return (
@@ -18,22 +31,38 @@ const TodoData = (props) => {
             {todoList.map((item, index) => {
                 return (
                     <div className="todo-item">
-                        <div key={item.id} style={{borderBlock: '1px', borderBlockColor: 'red', borderBlockEndStyle: 'solid'}}>{item.name}</div>
-                        <div>
-                            <EditOutlined onClick={() => handleEditing(item.id)}/>
-                            <DeleteOutlined
-                                style={{ marginLeft: '15px' }}
-                                onClick={() => deleteTodo(item.id)}
-                            />
-                        </div>
+                        {
+                            editing === item.id ?
+                                <>
+                                    <input 
+                                        type="text" 
+                                        value={newValue} 
+                                        onChange={handleChange}
+                                    />
+                                    <div>
+                                        <CheckOutlined onClick={() => handleSave(item.id)} />
+                                        <DeleteOutlined
+                                            style={{ marginLeft: '15px' }}
+                                            onClick={() => deleteTodo(item.id)}
+                                        />
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <div key={item.id}>{item.name}</div>
+                                    <div>
+                                        <EditOutlined onClick={() => handleEditing(item.id, item.name)} />
+                                        <DeleteOutlined
+                                            style={{ marginLeft: '15px' }}
+                                            onClick={() => deleteTodo(item.id)}
+                                        />
+                                    </div>
+                                </>
+                        }
                     </div>
                 )
                 // vì item là 1 obj
             })}
-
-            {/* <div>
-                {JSON.stringify(todoList)}
-            </div> */}
         </div>
     )
 }
