@@ -2,11 +2,7 @@ import { useState } from "react"
 import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 
 const TodoNew = (props) => {
-    // console.log(props);
     const { addNewTodo, incrementCount, count } = props
-    // addNewTodo()
-    // gọi hàm từ hàm con kp hàm cha
-    // props.addNewTodo()
     const [text, setText] = useState("");
 
     const handleTextChange = (e) => {
@@ -48,12 +44,6 @@ const TodoNew = (props) => {
                         onClick={notifiError}
                     >Add</button>
             }
-
-            {/* <div>
-                My text input is = {text} <StarOutlined/>
-            </div>
-            <div>; Index = {count}</div> */}
-            {/* <button onClick={incrementCount}></button> */}
         </div>
     )
 }

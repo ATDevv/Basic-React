@@ -16,14 +16,20 @@ const ViewDetailUer = (props) => {
 
     const handleOnChange = (e) => {
         if (!e.target.files || e.target.files.length === 0) {
-            setSelectedFile(null)
             setPreview(null)
+            setSelectedFile(null)
             return
         }
-        const file = e.target.files[0]
 
-        setSelectedFile(file)
-        setPreview(URL.createObjectURL(file))
+        const file = e.target.files[0];
+        if (file) {
+            setSelectedFile(file)
+            setPreview(URL.createObjectURL(file))
+        }
+    }
+
+    const handleUpdateUserChange = () => {
+        console.log('>>> Check :', selectedFile)
     }
 
     return (
@@ -74,7 +80,7 @@ const ViewDetailUer = (props) => {
                             />
                         </div>
                         {
-                            preview && 
+                            selectedFile &&
                             <div style={{
                                 marginTop: '10px',
                                 height: '100px', width: '100px',
@@ -84,13 +90,29 @@ const ViewDetailUer = (props) => {
                                     src={preview}
                                     alt=""
                                 />
+                                <div>
+                                    <button style={{
+                                        display: 'block',
+                                        marginTop: '10px',
+                                        padding: '5px 10px',
+                                        background: '#2ed4ff',
+                                        borderRadius: '7px',
+                                        border: '1px solid black',
+                                        cursor: 'pointer',
+                                        width: 'fit-content'
+                                    }}
+                                        onClick={handleUpdateUserChange}
+                                    >
+                                        Save
+                                    </button>
+                                </div>
                             </div>
                         }
                     </>
                     :
                     <p>Empty Data</p>
             }
-        </Drawer>
+        </Drawer >
     )
 };
 
