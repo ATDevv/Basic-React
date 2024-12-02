@@ -8,10 +8,11 @@ import {
 import LoginPage from './pages/login.jsx';
 import RegisterPage from './pages/register.jsx';
 import UsersPage from './pages/users.jsx';
-import ProductPage from './pages/product.jsx';
+// import ProductPage from './pages/product.jsx';
 import './styles/global.css'
 import TodoApp from './Components/todo/TodoApp.jsx';
 import ErrorPage from './pages/error.jsx';
+import MyProfile from './pages/me.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,8 +29,8 @@ const router = createBrowserRouter([
         element: <UsersPage />
       },
       {
-        path: '/products',
-        element: <ProductPage />
+        path: '/me',
+        element: <MyProfile/>
       }
     ]
   },
