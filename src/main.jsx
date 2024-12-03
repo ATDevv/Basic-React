@@ -13,6 +13,7 @@ import './styles/global.css'
 import TodoApp from './Components/todo/TodoApp.jsx';
 import ErrorPage from './pages/error.jsx';
 import MyProfile from './pages/me.jsx';
+import ToDo from './pages/todo.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,15 +23,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <TodoApp/>
+        element: <MyProfile/>
       },
       {
         path: '/users',
         element: <UsersPage />
       },
       {
-        path: '/me',
-        element: <MyProfile/>
+        path: '/todo',
+        element: <ToDo/>
       }
     ]
   },
