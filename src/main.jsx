@@ -14,6 +14,7 @@ import TodoApp from './Components/todo/TodoApp.jsx';
 import ErrorPage from './pages/error.jsx';
 import MyProfile from './pages/me.jsx';
 import ToDo from './pages/todo.jsx';
+import Book from './pages/book.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
       {
         path: '/todo',
         element: <ToDo/>
+      }
+      ,
+      {
+        path: '/books',
+        element: <Book/>
       }
     ]
   },
