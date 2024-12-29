@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react";
+import { CaretRightFilled, FacebookFilled, GithubFilled } from "@ant-design/icons";
+import Lottie from "lottie-react";
+import Cat from '../../public/Animation - 1735480895399.json'
+import { motion } from 'framer-motion';
 
 const Typewriter = ({ text, delay }) => {
     const [currentText, setCurrentText] = useState('');
@@ -18,21 +22,72 @@ const Typewriter = ({ text, delay }) => {
     return <span>{currentText}</span>;
 }
 
+const openFace = () => {
+    window.open('https://www.facebook.com/dinh.tuananh2311', '_blank');
+};
+
+const openGithub = () => {
+    window.open('https://github.com/ATDevv', '_blank');
+}
+
 const MyProfile = () => {
     return (
-        <div style={{
-            padding: 5,
-            // height: '100vh',
-            // width: '100vw',
-            // backgroundColor: '#4158D0',
-            // backgroundImage: 'linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)',
-            // fontFamily: 'Arial, sans-serif',
-            // color: '#fff'
-        }}>
-            <h1>
-                <Typewriter text="Hi there, I'm Atdevv" delay={100} />
-            </h1>
-        </div>
+        <>
+            <div style={{
+                padding: 5,
+            }}>
+                <h1>
+                    <Typewriter text="Hi there, I'm Atdevv" delay={100} />
+                </h1>
+            </div>
+            <div style={{
+                display: 'flex',
+                gap: '18px',
+                alignItems: 'center'
+            }}>
+                <CaretRightFilled style={{
+                    fontSize: '30px',
+                    color: 'red'
+                }} />
+                <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.5 }}
+                >
+                    <FacebookFilled
+                        style={{
+                            fontSize: '70px',
+                            color: 'blue',
+                        }}
+                        onClick={openFace}
+                    />
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.5 }}
+                >
+                    <GithubFilled
+                        style={{
+                            fontSize: '70px',
+                            color: 'black',
+                            cursor: 'pointer',
+                        }}
+                        onClick={openGithub}
+                    />
+                </motion.div>
+            </div>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'right',
+                marginRight: '100px',
+            }}>
+                <Lottie animationData={Cat} style={{
+                    width: '300px',
+                    height: '300px',
+                }} />
+            </div>
+        </>
     )
 }
 
