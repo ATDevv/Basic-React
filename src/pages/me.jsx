@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { CaretRightFilled, FacebookFilled, GithubFilled } from "@ant-design/icons";
 import Lottie from "lottie-react";
-import Cat from '../../public/Animation - 1735480895399.json'
+import Skills from '../../public/Animation - 1735544178527.json'
 import { motion } from 'framer-motion';
+import Arrow from '../../public/Animation - 1735543071510.json'
 
 const Typewriter = ({ text, delay }) => {
     const [currentText, setCurrentText] = useState('');
@@ -33,13 +34,24 @@ const openGithub = () => {
 const MyProfile = () => {
     return (
         <>
-            <div style={{
-                padding: 5,
-            }}>
-                <h1>
+            <div style={{padding: 5}}>
+                <h1 style={{
+                    fontFamily: 'sans-serif'
+                }}>
                     <Typewriter text="Hi there, I'm Atdevv" delay={100} />
                 </h1>
             </div>
+
+            <div>
+                <Lottie
+                    animationData={Arrow}
+                    style={{
+                        width: '200px',
+                        height: '200px'
+                    }}
+                />
+            </div>
+
             <div style={{
                 display: 'flex',
                 gap: '18px',
@@ -77,15 +89,23 @@ const MyProfile = () => {
                     />
                 </motion.div>
             </div>
+
             <div style={{
                 display: 'flex',
                 justifyContent: 'right',
                 marginRight: '100px',
+                marginTop: '-20%'
             }}>
-                <Lottie animationData={Cat} style={{
-                    width: '300px',
-                    height: '300px',
-                }} />
+                <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.5 }}
+                >
+                    <Lottie animationData={Skills} style={{
+                        width: '500px',
+                        height: '500px',
+                    }} />
+                </motion.div>
             </div>
         </>
     )
