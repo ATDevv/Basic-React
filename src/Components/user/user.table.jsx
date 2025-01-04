@@ -4,6 +4,7 @@ import { useState } from 'react';
 import UpdateUserModal from './update.user.model';
 import ViewDetailUer from './details.user';
 import { deleteUserAPI } from '../../services/api.services';
+import { title } from 'motion/react-client';
 
 const UserTable = (props) => {
     const { dataUser, loadUser } = props
@@ -34,6 +35,16 @@ const UserTable = (props) => {
     }
 
     const columns = [
+        {
+            title: 'STT',
+            render: (_, record, index) => {
+                return (
+                    <>
+                    {index + 1}
+                    </>
+                )
+            }
+        },
         {
             title: 'Id',
             dataIndex: '_id',

@@ -11,7 +11,6 @@ const MyProfile = () => {
                 alignItems: 'center',
                 width: '100vw',
                 height: '45vw',
-                marginLeft: '1%',
                 position: 'relative'
             }}>
                 <Lottie animationData={Rectangle} style={{
