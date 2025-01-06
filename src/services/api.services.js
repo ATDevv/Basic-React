@@ -29,7 +29,7 @@ const fetchAllUserAPI = () => {
 
 const deleteUserAPI = (id) => {
     const url_be = `/api/v1/user/${id}`
-    return(
+    return (
         axios.delete(url_be)
     )
 }
@@ -45,6 +45,15 @@ const RegisterUserApi = (fullName, email, password, phone) => {
     return (axios.post(url_be, data))
 }
 
+const LoginUserApi = (email, password) => {
+    const url_be = "/api/v1/user/login"
+    const data = {
+        username: email,
+        password: password
+    }
+    return (axios.post(url_be, data))
+}
+
 export {
-    CreateUserApi, fetchAllUserAPI, updateUserAPI, deleteUserAPI, RegisterUserApi
+    CreateUserApi, fetchAllUserAPI, updateUserAPI, deleteUserAPI, RegisterUserApi, LoginUserApi
 }
