@@ -34,6 +34,17 @@ const deleteUserAPI = (id) => {
     )
 }
 
+const RegisterUserApi = (fullName, email, password, phone) => {
+    const url_be = "/api/v1/user/register"
+    const data = {
+        fullName: fullName,
+        email: email,
+        password: password,
+        phone: phone
+    }
+    return (axios.post(url_be, data))
+}
+
 export {
-    CreateUserApi, fetchAllUserAPI, updateUserAPI, deleteUserAPI
+    CreateUserApi, fetchAllUserAPI, updateUserAPI, deleteUserAPI, RegisterUserApi
 }

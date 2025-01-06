@@ -2,11 +2,12 @@ import { Link, NavLink } from "react-router-dom";
 import { Menu } from "antd"
 import { UserOutlined, SearchOutlined, AppstoreOutlined, AuditOutlined } from '@ant-design/icons'
 import { useState } from "react"
+import Btn_ResLog from "../About_Me/btn_res";
 
 const Header = () => {
     const [current, setCurrent] = useState('');
     const onClick = (e) => {
-        console.log('click ', e);
+        // console.log('click ', e);
         setCurrent(e.key);
     };
 
@@ -30,16 +31,29 @@ const Header = () => {
             label: <NavLink to='/books'>Books</NavLink>,
             key: 'book',
             icon: <AuditOutlined />
-        }
+        },
+        // {
+        //     label: <NavLink to='/register'>egister</NavLink>,
+        //     key: 'register',
+        //     icon: <AuditOutlined />
+        // },
+        // {
+        //     label: <NavLink to='/login'>Login</NavLink>,
+        //     key: 'login',
+        //     icon: <AuditOutlined />
+        // }
     ];
 
     return (
-        <Menu
+        <>
+            <Menu
             onClick={onClick}
             selectedKeys={[current]}
             mode="horizontal"
             items={items} 
-        />
+            />
+            <Btn_ResLog/>
+        </>
     )
 
 }
