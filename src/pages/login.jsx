@@ -29,7 +29,15 @@ const LoginPage = () => {
     }
 
     return (
-        <>
+        <div style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -60%)',
+            border: '1px solid #ccc',
+            width: 'min(700px, 90%)',
+            borderRadius: '20px',
+        }}>
             <h1 style={{
                 textAlign: 'center',
                 marginTop: "15px",
@@ -41,9 +49,7 @@ const LoginPage = () => {
                     remember: true,
                 }}
                 style={{
-                    maxWidth: 700,
-                    margin: 'auto',
-                    padding: '10px',
+                    padding: '20px',
                 }}
                 onFinish={onFinish}
                 form={form}
@@ -81,9 +87,9 @@ const LoginPage = () => {
                 </Form.Item>
 
                 <Form.Item>
-                    <Button block type="primary" htmlType="submit" 
+                    <Button block type="primary" htmlType="submit"
                         onClick={handleLogin}
-                        // loading={true}
+                    // loading={true}
                     >
                         Log in
                     </Button>
@@ -92,14 +98,18 @@ const LoginPage = () => {
             </Form>
             <Form>
                 <div style={{
-                    textAlign: 'center'
+                    textAlign: 'right',
+                    margin: '10px',
                 }}>
-                    <NavLink to='/'>Go to HomePage </NavLink><ArrowRightOutlined style={{
-                        color: 'blue'
-                    }} />
+                    <Button>
+                        <NavLink to='/'>Go to HomePage </NavLink>
+                        <ArrowRightOutlined style={{
+                            color: 'blue',
+                        }} />
+                    </Button>
                 </div>
             </Form>
-        </>
+        </div>
     )
 }
 
