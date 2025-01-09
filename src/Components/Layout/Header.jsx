@@ -1,11 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import { Menu } from "antd"
 import { UserOutlined, SearchOutlined, AppstoreOutlined, AuditOutlined } from '@ant-design/icons'
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Btn_ResLog from "../About_Me/btn_res";
+import { AuthContext } from "../context/auth.context";
 
 const Header = () => {
     const [current, setCurrent] = useState('');
+    const { user } = useContext(AuthContext)
+
     const onClick = (e) => {
         // console.log('click ', e);
         setCurrent(e.key);

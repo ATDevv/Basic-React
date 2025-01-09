@@ -3,17 +3,22 @@ import { Button, Checkbox, Form, Input, Flex, notification, message } from 'antd
 import { useForm } from 'antd/es/form/Form';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { LoginUserApi } from '../services/api.services';
+import { useContext } from 'react';
+import { AuthContext } from '../Components/context/auth.context';
 
 const LoginPage = () => {
-    const [form] = useForm();
-    const navigate = useNavigate();
+    const [form] = useForm()
+    const navigate = useNavigate()
+    const { setUser } = useContext(AuthContext);
 
     const onFinish = async (values) => {
-        console.log('Received values of form: ', values);
+        console.log('Received values of form: ', values)
 
         const res = await LoginUserApi(values.email, values.password)
         if (res.data) {
             message.success('Login successfully')
+            localStorage.setItem('access_token', res.data.access_token)
+            setUser(res.data.user)
             navigate("/")
         }
         else {
@@ -75,7 +80,7 @@ const LoginPage = () => {
                         },
                     ]}
                 >
-                    <Input prefix={<LockOutlined />} type="password" placeholder="Password" />
+                    <Input.Password prefix={<LockOutlined />} type="password" placeholder="Password" />
                 </Form.Item>
                 <Form.Item>
                     <Flex justify="space-between" align="center">

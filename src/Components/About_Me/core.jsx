@@ -39,7 +39,8 @@ const Core = () => {
             alignItems: 'center',
             gap: '10%',
             marginTop: '20px',
-            paddingBottom: '70px'
+            paddingBottom: '70px',
+            zIndex: 2,
         }}>
             <div>
                 <div style={{ padding: 5 }}>

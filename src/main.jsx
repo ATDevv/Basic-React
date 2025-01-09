@@ -15,16 +15,17 @@ import ErrorPage from './pages/error.jsx';
 import MyProfile from './pages/me.jsx';
 import ToDo from './pages/todo.jsx';
 import Book from './pages/book.jsx';
+import { AuthWrapper } from './Components/context/auth.context.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
-        element: <MyProfile/>
+        element: <MyProfile />
       },
       {
         path: '/users',
@@ -32,12 +33,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/todo',
-        element: <ToDo/>
+        element: <ToDo />
       }
       ,
       {
         path: '/books',
-        element: <Book/>
+        element: <Book />
       }
     ]
   },
@@ -52,8 +53,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    {/* <App /> */}
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  <AuthWrapper>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>,
+  </AuthWrapper>
 )
