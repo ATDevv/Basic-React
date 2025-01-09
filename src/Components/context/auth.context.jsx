@@ -19,9 +19,15 @@ export const AuthWrapper = (props) => {
         id: "",
     });
 
-    return(
+    return (
         <AuthContext.Provider value={{user, setUser}}>
             {props.children}
         </AuthContext.Provider>
+
+        // Giống như =>
+        // <AuthContext.Provider value={{user, setUser}}>
+        //      <RouterProvider router={router} />
+        // </AuthContext.Provider>
+        // props.children giúp linh động phần tử bên trong khi khồng cần export
     )
 }

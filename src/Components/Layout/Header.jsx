@@ -1,9 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import { Menu } from "antd"
-import { UserOutlined, SearchOutlined, AppstoreOutlined, AuditOutlined } from '@ant-design/icons'
+import { UserOutlined, SearchOutlined, AppstoreOutlined, AuditOutlined, AliwangwangOutlined } from '@ant-design/icons'
 import { useContext, useState } from "react"
 import Btn_ResLog from "../About_Me/btn_res";
 import { AuthContext } from "../context/auth.context";
+import { label } from "motion/react-client";
 
 const Header = () => {
     const [current, setCurrent] = useState('');
@@ -35,29 +36,30 @@ const Header = () => {
             key: 'book',
             icon: <AuditOutlined />
         },
-        // {
-        //     label: <NavLink to='/register'>egister</NavLink>,
-        //     key: 'register',
-        //     icon: <AuditOutlined />
-        // },
-        // {
-        //     label: <NavLink to='/login'>Login</NavLink>,
-        //     key: 'login',
-        //     icon: <AuditOutlined />
-        // }
+        {
+            label: `Welcome ${user.fullName}`,
+            key: 'setting',
+            icon: <AliwangwangOutlined />,
+            children: [
+                {
+                    label: 'Log Out',
+                    key: 'logout'
+                }
+            ]
+        }
     ];
 
-    return (
-        <>
-            <Menu
+return (
+    <>
+        <Menu
             onClick={onClick}
             selectedKeys={[current]}
             mode="horizontal"
-            items={items} 
-            />
-            <Btn_ResLog/>
-        </>
-    )
+            items={items}
+        />
+        <Btn_ResLog />
+    </>
+)
 
 }
 
