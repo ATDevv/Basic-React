@@ -54,6 +54,12 @@ const LoginUserApi = (email, password) => {
     return (axios.post(url_be, data))
 }
 
+const LogoutUserApi = () => {
+    const url_be = "/api/v1/auth/logout"
+    return (axios.post(url_be, data))
+}
+
 export {
-    CreateUserApi, fetchAllUserAPI, updateUserAPI, deleteUserAPI, RegisterUserApi, LoginUserApi
+    CreateUserApi, fetchAllUserAPI, updateUserAPI, deleteUserAPI,
+    RegisterUserApi, LoginUserApi, LogoutUserApi
 }
