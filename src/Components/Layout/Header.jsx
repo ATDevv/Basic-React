@@ -18,7 +18,7 @@ const Header = () => {
         setCurrent(e.key);
     };
 
-    const hanldeLogout = async () => {
+    const handleLogout = async () => {
         const res = await LogoutUserApi();
 
         if (res.data) {
