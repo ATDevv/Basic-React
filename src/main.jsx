@@ -8,14 +8,13 @@ import {
 import LoginPage from './pages/login.jsx';
 import RegisterPage from './pages/register.jsx';
 import UsersPage from './pages/users.jsx';
-// import ProductPage from './pages/product.jsx';
 import './styles/global.css'
-import TodoApp from './Components/todo/TodoApp.jsx';
 import ErrorPage from './pages/error.jsx';
 import MyProfile from './pages/me.jsx';
 import ToDo from './pages/todo.jsx';
 import Book from './pages/book.jsx';
 import { AuthWrapper } from './Components/context/auth.context.jsx';
+import PrivateRoute from './pages/private.route.jsx'
 
 const router = createBrowserRouter([
   {
@@ -38,7 +37,11 @@ const router = createBrowserRouter([
       ,
       {
         path: '/books',
-        element: <Book />
+        element: (
+          <PrivateRoute>
+            <Book />
+          </PrivateRoute>
+        )
       }
     ]
   },

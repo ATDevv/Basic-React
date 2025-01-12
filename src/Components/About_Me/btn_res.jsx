@@ -1,4 +1,3 @@
-import { RightCircleFilled } from '@ant-design/icons'
 import { Button } from 'antd'
 import { NavLink } from 'react-router-dom'
 
@@ -14,6 +13,7 @@ const Btn_ResLog = () => {
             <NavLink to='/register'>
                 <Button type='primary'>Register</Button>
             </NavLink>
+
             <NavLink to='/login'>
                 <Button>Login</Button>
             </NavLink>

@@ -80,7 +80,11 @@ const LoginPage = () => {
                         },
                     ]}
                 >
-                    <Input.Password prefix={<LockOutlined />} type="password" placeholder="Password" />
+                    <Input.Password prefix={<LockOutlined />} type="password" placeholder="Password" onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            form.submit()
+                        }
+                    }} />
                 </Form.Item>
                 <Form.Item>
                     <Flex justify="space-between" align="center">

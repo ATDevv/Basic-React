@@ -36,7 +36,7 @@ const Header = () => {
             key: 'book',
             icon: <AuditOutlined />
         },
-        {
+        ...(user.id ? [{
             label: `Welcome ${user.fullName}`,
             key: 'setting',
             icon: <AliwangwangOutlined />,
@@ -46,21 +46,20 @@ const Header = () => {
                     key: 'logout'
                 }
             ]
-        }
+        }] : [])
     ];
 
-return (
-    <>
-        <Menu
-            onClick={onClick}
-            selectedKeys={[current]}
-            mode="horizontal"
-            items={items}
-        />
-        <Btn_ResLog />
-    </>
-)
-
+    return (
+        <>
+            <Menu
+                onClick={onClick}
+                selectedKeys={[current]}
+                mode="horizontal"
+                items={items}
+            />
+            <Btn_ResLog />
+        </>
+    )
 }
 
 export default Header
